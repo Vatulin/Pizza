@@ -42,6 +42,10 @@ class RootFragment : Fragment() {
         binding.profileButton.setOnClickListener {
             binding.root.findNavController().navigate(R.id.action_rootFragment_to_profile)
         }
+
+        binding.catalogButton.setOnClickListener {
+            binding.root.findNavController().navigate(R.id.action_rootFragment_to_catalogFragment)
+        }
         return binding.root
     }
 

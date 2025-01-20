@@ -2,19 +2,15 @@ package com.example.pizza
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 
 import com.example.pizza.placeholder.PlaceholderContent.PlaceholderItem
 import com.example.pizza.databinding.CatalogItemBinding
 
-/**
- * [RecyclerView.Adapter] that can display a [PlaceholderItem].
- * TODO: Replace the implementation with code for your data type.
- */
 class CatalogRecyclerViewAdapter(
-    private val values: List<PlaceholderItem>
+    private val pizzas: MutableList<PlaceholderItem>
 ) : RecyclerView.Adapter<CatalogRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -30,19 +26,31 @@ class CatalogRecyclerViewAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = values[position]
-        holder.idView.text = item.id
-        holder.contentView.text = item.content
+        val pizza = pizzas[position]
+        holder.rate?.text = pizza.rate
+        holder.name?.text = pizza.name
+        holder.consist?.text = pizza.consist
+        holder.weight?.text = pizza.weight
+        holder.price?.text = pizza.price
+        holder.image?.setImageBitmap(null)
     }
 
-    override fun getItemCount(): Int = values.size
+    override fun getItemCount(): Int = pizzas.size
 
     inner class ViewHolder(binding: CatalogItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        val idView: TextView = binding.itemNumber
-        val contentView: TextView = binding.content
-
-        override fun toString(): String {
-            return super.toString() + " '" + contentView.text + "'"
+        var rate : TextView? = null
+        var name : TextView? = null
+        var consist : TextView? = null
+        var weight : TextView? = null
+        var price : TextView? = null
+        var image: ImageView? = null
+        init {
+            rate = binding.rateText
+            name = binding.cardName
+            consist = binding.cardConsist
+            weight = binding.cardWeight
+            price = binding.cardPrice
+            image = binding.cardImage
         }
     }
 

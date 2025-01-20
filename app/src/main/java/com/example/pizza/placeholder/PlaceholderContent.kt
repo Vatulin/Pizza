@@ -1,5 +1,7 @@
 package com.example.pizza.placeholder
 
+import android.graphics.Bitmap
+import com.example.pizza.Pizza
 import java.util.ArrayList
 import java.util.HashMap
 
@@ -14,6 +16,7 @@ object PlaceholderContent {
     /**
      * An array of sample (placeholder) items.
      */
+
     val ITEMS: MutableList<PlaceholderItem> = ArrayList()
 
     /**
@@ -24,19 +27,23 @@ object PlaceholderContent {
     private val COUNT = 25
 
     init {
-        // Add some sample items.
-        for (i in 1..COUNT) {
-            addItem(createPlaceholderItem(i))
+        val pizzaArray = arrayOf(
+            Pizza(5.0, "Пеперони", "Свинина, паприка, перец чили", "700г", 500, null),
+            Pizza(5.0, "Чили", "Свинина, паприка, перец чили", "700г", 500, null)
+        )
+        for (pizza in pizzaArray) {
+            val item = PlaceholderItem(pizza.rate.toString(), pizza.name, pizza.consist, pizza.weight.toString(), pizza.price.toString(), image = "image")
+            addItem(item)
         }
     }
 
     private fun addItem(item: PlaceholderItem) {
         ITEMS.add(item)
-        ITEM_MAP.put(item.id, item)
+        ITEM_MAP.put(item.name, item)
     }
 
-    private fun createPlaceholderItem(position: Int): PlaceholderItem {
-        return PlaceholderItem(position.toString(), "Item " + position, makeDetails(position))
+    private fun createPlaceholderItem(rate: String, name: String, consist: String, weight: String, price: String, image: Bitmap): PlaceholderItem {
+        return PlaceholderItem(rate, name, consist, weight, price, image.toString())
     }
 
     private fun makeDetails(position: Int): String {
@@ -51,7 +58,12 @@ object PlaceholderContent {
     /**
      * A placeholder item representing a piece of content.
      */
-    data class PlaceholderItem(val id: String, val content: String, val details: String) {
-        override fun toString(): String = content
-    }
+    data class PlaceholderItem(
+        val rate: String,
+        val name: String,
+        val consist: String,
+        val weight: String,
+        val price: String,
+        val image: String
+    )
 }
