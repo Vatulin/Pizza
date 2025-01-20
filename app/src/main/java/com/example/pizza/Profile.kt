@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.example.pizza.databinding.FragmentProfileBinding
 import com.example.pizza.databinding.FragmentRootBinding
@@ -45,8 +46,6 @@ class Profile : Fragment() {
         binding.profileBackButton.setOnClickListener {
             binding.root.findNavController().navigate(R.id.action_profile_to_rootFragment)
         }
-
-
 
         return binding.root
     }
