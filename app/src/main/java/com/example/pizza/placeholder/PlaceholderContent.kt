@@ -1,17 +1,10 @@
 package com.example.pizza.placeholder
 
-import android.media.Image
 import com.example.pizza.Pizza
 import com.example.pizza.R
 import java.util.ArrayList
 import java.util.HashMap
 
-/**
- * Helper class for providing sample content for user interfaces created by
- * Android template wizards.
- *
- * TODO: Replace all uses of this class before publishing your app.
- */
 object PlaceholderContent {
 
     /**

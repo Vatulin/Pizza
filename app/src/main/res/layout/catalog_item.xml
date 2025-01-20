@@ -57,7 +57,9 @@
             android:id="@+id/card_consist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Свинина, паприка, перец чили"/>
+            android:text="Свинина, паприка, перец чили"
+            android:maxLines="2"
+            android:ellipsize="end"/>
 
         <TextView
             android:id="@+id/card_weight"
