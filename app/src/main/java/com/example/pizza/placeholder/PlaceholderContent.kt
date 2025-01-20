@@ -1,7 +1,8 @@
 package com.example.pizza.placeholder
 
-import android.graphics.Bitmap
+import android.media.Image
 import com.example.pizza.Pizza
+import com.example.pizza.R
 import java.util.ArrayList
 import java.util.HashMap
 
@@ -28,11 +29,11 @@ object PlaceholderContent {
 
     init {
         val pizzaArray = arrayOf(
-            Pizza(5.0, "Пеперони", "Свинина, паприка, перец чили", "700г", 500, null),
-            Pizza(5.0, "Чили", "Свинина, паприка, перец чили", "700г", 500, null)
+            Pizza(5.0, "Пеперони", "Свинина, паприка, перец чили", "700г", 500, R.drawable.peperony),
+            Pizza(5.0, "Чили", "Свинина, паприка, перец чили", "700г", 500, R.drawable.peperony)
         )
         for (pizza in pizzaArray) {
-            val item = PlaceholderItem(pizza.rate.toString(), pizza.name, pizza.consist, pizza.weight.toString(), pizza.price.toString(), image = "image")
+            val item = PlaceholderItem(pizza.rate.toString(), pizza.name, pizza.consist, pizza.weight, pizza.price.toString(), pizza.image)
             addItem(item)
         }
     }
@@ -42,8 +43,8 @@ object PlaceholderContent {
         ITEM_MAP.put(item.name, item)
     }
 
-    private fun createPlaceholderItem(rate: String, name: String, consist: String, weight: String, price: String, image: Bitmap): PlaceholderItem {
-        return PlaceholderItem(rate, name, consist, weight, price, image.toString())
+    private fun createPlaceholderItem(rate: String, name: String, consist: String, weight: String, price: String, image: Int): PlaceholderItem {
+        return PlaceholderItem(rate, name, consist, weight, price, image)
     }
 
     private fun makeDetails(position: Int): String {
@@ -64,6 +65,6 @@ object PlaceholderContent {
         val consist: String,
         val weight: String,
         val price: String,
-        val image: String
+        val image: Int
     )
 }

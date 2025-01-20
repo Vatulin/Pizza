@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 
 import com.example.pizza.placeholder.PlaceholderContent.PlaceholderItem
 import com.example.pizza.databinding.CatalogItemBinding
@@ -32,7 +33,10 @@ class CatalogRecyclerViewAdapter(
         holder.consist?.text = pizza.consist
         holder.weight?.text = pizza.weight
         holder.price?.text = pizza.price
-        holder.image?.setImageBitmap(null)
+        pizza.image?.let {
+            val drawable = ContextCompat.getDrawable(holder.itemView.context, it)
+            holder.image?.setImageDrawable(drawable)
+        }
     }
 
     override fun getItemCount(): Int = pizzas.size
