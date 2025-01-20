@@ -30,7 +30,12 @@ object PlaceholderContent {
     init {
         val pizzaArray = arrayOf(
             Pizza(5.0, "Пеперони", "Свинина, паприка, перец чили", "700г", 500, R.drawable.peperony),
-            Pizza(5.0, "Чили", "Свинина, паприка, перец чили", "700г", 500, R.drawable.peperony)
+            Pizza(4.9, "Бефстроганов", "Пряная говядина, шампиньоны, ароматный грибной соус, маринованные огурчики, моцарелла, красный лук, фирменный соус альфредо", "750г", 549, R.drawable.befstroganov),
+            Pizza(4.7, "Говядина с песто", "Пряная говядина, соус песто, шампиньоны, сладкий перец, моцарелла, красный лук, фирменный соус альфредо", "800г", 500, R.drawable.govyadina_s_pesto),
+            Pizza(5.0, "Кола-барбекю", "Пряная говядина, пикантная пепперони, острые колбаски чоризо, соус кола-барбекю, моцарелла и фирменный томатный соус", "900г", 599, R.drawable.kola_barbeku),
+            Pizza(4.5, "Насыщенный вечер на двоих", "пицца 30 см с пряной говядиной на выбор, Дэнвич с говядиной, два напитка", "2000г", 1249, R.drawable.na_dvoix),
+            Pizza(4.8, "Мясной микс", "Пряная говядина, баварские колбаски, пикантная пепперони, бекон, моцарелла и фирменный томатный соус", "590г", 699, R.drawable.myasnoi_mix),
+            Pizza(5.0, "Дэнвич с говядиной", "Хрустящая чиабатта с ароматной пряной говядиной и цыпленком с соусами бургер и барбекю, свежими томатами и моцареллой", "170г", 349, R.drawable.denvich)
         )
         for (pizza in pizzaArray) {
             val item = PlaceholderItem(pizza.rate.toString(), pizza.name, pizza.consist, pizza.weight, pizza.price.toString(), pizza.image)
@@ -41,19 +46,6 @@ object PlaceholderContent {
     private fun addItem(item: PlaceholderItem) {
         ITEMS.add(item)
         ITEM_MAP.put(item.name, item)
-    }
-
-    private fun createPlaceholderItem(rate: String, name: String, consist: String, weight: String, price: String, image: Int): PlaceholderItem {
-        return PlaceholderItem(rate, name, consist, weight, price, image)
-    }
-
-    private fun makeDetails(position: Int): String {
-        val builder = StringBuilder()
-        builder.append("Details about Item: ").append(position)
-        for (i in 0..position - 1) {
-            builder.append("\nMore details information here.")
-        }
-        return builder.toString()
     }
 
     /**
